@@ -35,6 +35,9 @@ public class MemoryMemberRepository implements MemberRepository{
 
     @Override
     public Optional<Member> findByName(String name) {
+        for (Member member : store.values()) {
+            System.out.println("member = " + member.getId() + "        " + member.getName());
+        }
         return store.values().stream()
 //              람다식
                 .filter(member -> member.getName().equals(name))
@@ -48,6 +51,12 @@ public class MemoryMemberRepository implements MemberRepository{
         return new ArrayList<>(store.values());
 //        스토어에 있는 values => 멤버들
     }
+
+    public void clearStore() {
+        store.clear();
+    }
+//    공용으로 쓰이는 게 아니라서 인터페이스에 구현은 안 했지만, 필요한 로직은 오버라이드 안 함
+
 }
 
 // 구현 다 했어, 동작하는지 확인은 어떻게 하지? => 테스트케이스(TC) 생성!!

@@ -6,6 +6,7 @@ public class Member {
 
 //    getter setter => 자동 생성 (맥북 기준 Ctrl + Enter)
     private String name;
+
     public Long getId() {
         return id;
     }
@@ -16,6 +17,9 @@ public class Member {
         return name;
     }
     public void setName(String name) {
+
         this.name = name;
     }
 }
+// spring 어디서든 접근 가능
+
